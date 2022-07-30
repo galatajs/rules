@@ -6,7 +6,7 @@ import {
 } from "../rules/rules";
 
 export const createRule = <ErrorType = string>(
-  options: CreateRuleOptions = { waitAll: false }
+  options: CreateRuleOptions = { waitAll: false, singleParameter: false }
 ): RuleContext<ErrorType> => {
   let stack;
   let result: RuleContextResult<ErrorType> = {
@@ -17,6 +17,14 @@ export const createRule = <ErrorType = string>(
     if (options.waitAll) return false;
     return result.errors.length !== 0 || !result.success;
   };
+
+  const getParameter = (index: number, params: any[]): any => {
+    if (options.singleParameter) {
+      return params[0];
+    }
+    return params[index];
+  };
+
   return {
     start(...validators: Validator<ErrorType>[]): RuleContext<ErrorType> {
       stack = new Set<Validator<ErrorType>>();
@@ -35,7 +43,7 @@ export const createRule = <ErrorType = string>(
       let index = 0;
       for (const rule of stack) {
         if (checkFinish()) break;
-        const res = rule.validator(params[index]);
+        const res = rule.validator(getParameter(index, params));
         res.success === false ? result.errors.push(res.error) : null;
         if (["start", "all"].includes(rule.type)) {
           result.success = res.success;

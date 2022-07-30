@@ -118,4 +118,16 @@ describe("RuleContext tests", () => {
     assert.strictEqual(result.success, true);
     assert.strictEqual(result.errors.length, 0);
   });
+
+  it("single parameter testing", () => {
+    const result = createRule({ singleParameter: true })
+      .start((obj) => ({ success: obj.a === 1 }))
+      .and((obj) => ({ success: obj.b === 2 }))
+      .end({
+        a: 1,
+        b: 2,
+      });
+    assert.strictEqual(result.success, true);
+    assert.strictEqual(result.errors.length, 0);
+  });
 });

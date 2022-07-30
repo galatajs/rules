@@ -11,7 +11,8 @@ export interface RuleResult<ErrType> extends BaseRuleResult {
 }
 
 export type CreateRuleOptions = {
-  waitAll: boolean;
+  waitAll?: boolean;
+  singleParameter?: boolean;
 };
 
 export type Validator<ErrType> = (params: any) => RuleResult<ErrType>;
