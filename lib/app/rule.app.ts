@@ -5,4 +5,5 @@ export interface RuleContext<ErrorType> {
   and(validator: Validator<ErrorType>): this;
   or(validator: Validator<ErrorType>): this;
   end(...params: any[]): RuleContextResult<ErrorType>;
+  asyncEnd(...params: any[]): Promise<RuleContextResult<ErrorType>>;
 }

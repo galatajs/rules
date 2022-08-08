@@ -56,5 +56,22 @@ export const createRule = <ErrorType = string>(
       }
       return result;
     },
+    async asyncEnd(...params: any[]): Promise<RuleContextResult<ErrorType>> {
+      let index = 0;
+      for (const rule of stack) {
+        if (checkFinish()) break;
+        const res = await rule.validator(getParameter(index, params));
+        res.success === false ? result.errors.push(res.error) : null;
+        if (["start", "all"].includes(rule.type)) {
+          result.success = res.success;
+        } else if (rule.type === "and") {
+          result.success = result.success && res.success;
+        } else if (rule.type === "or") {
+          result.success = result.success || res.success;
+        }
+        index++;
+      }
+      return result;
+    },
   };
 };

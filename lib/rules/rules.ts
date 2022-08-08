@@ -15,4 +15,6 @@ export type CreateRuleOptions = {
   singleParameter?: boolean;
 };
 
-export type Validator<ErrType> = (params: any) => RuleResult<ErrType>;
+export type Validator<ErrType> = (
+  params: any
+) => RuleResult<ErrType> | Promise<RuleResult<ErrType>>;

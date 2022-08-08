@@ -1,6 +1,6 @@
 {
   "name": "@istanbul/rules",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Rule packages of istanbul framework",
   "homepage": "https://github.com/istanbulnode/rules#readme",
   "keywords": [
