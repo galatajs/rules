@@ -1,11 +1,10 @@
 {
-  "name": "@istanbul/rules",
-  "version": "0.0.4",
-  "description": "Rule packages of istanbul framework",
-  "homepage": "https://github.com/istanbulnode/rules#readme",
+  "name": "@galatajs/rules",
+  "version": "0.1.1",
+  "description": "Rule packages of galatajs framework",
+  "homepage": "https://github.com/galatajs/rules#readme",
   "keywords": [
     "typescript",
-    "istanbul",
     "rules",
     "business-rules"
   ],
@@ -13,10 +12,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/istanbulnode/rules.git"
+    "url": "git+https://github.com/galatajs/rules.git"
   },
   "bugs": {
-    "url": "https://github.com/istanbulnode/rules/issues"
+    "url": "https://github.com/galatajs/rules/issues"
   },
   "directories": {
     "lib": "./lib",

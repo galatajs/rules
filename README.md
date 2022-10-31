@@ -1,37 +1,34 @@
-
-## !! Not ready for production, experimental
-
 <p align="center">
 <br>
 <img src="https://avatars.githubusercontent.com/u/108695351?s=200&v=4" width="128" height="128">
 </p>
-<h3 align="center">@istanbul/rules</h3>
+<h3 align="center">@galatajs/rules</h3>
 <p align="center">
-  Rule package of <code>istanbul</code> framework. 
+  Rule package of <code>galatajs</code> framework. 
 </p>
 
 ### What Is It?
 
-This package is the rule package of the ``istanbul`` framework. It allows you to write and manage business rules in a cleaner way, not nested if conditions.
+This package is the rule package of the ``galatajs`` framework. It allows you to write and manage business rules in a cleaner way, not nested if conditions.
 
-You don't have to use ```istanbul``` framework, ```@istanbul/rules``` is a nodejs package.
+You don't have to use ```galatajs``` framework, ```@galatajs/rules``` is a nodejs package.
 
 ### Installation
 
 ```sh
-npm install @istanbul/rules
+npm install @galatajs/rules
 ```
 
 > or with yarn
 >
 > ```sh
-> yarn add @istanbul/rules
+> yarn add @galatajs/rules
 > ```
 
 ### Basic Usage
 
 ```typescript
-import { createRule } from '@istanbul/rules';
+import { createRule } from '@galatajs/rules';
 
 const validateUserType = (user) => {
     return {success: user.type === 'admin', error: 'User type is not admin'};
@@ -43,8 +40,8 @@ const validateUser = createRule<string>(validateUserType);
 ### Advanced Usage
 
 ```typescript
-import { createRule } from '@istanbul/rules';
-import { ErrorDataResult } from "@istanbul/core"
+import { createRule } from '@galatajs/rules';
+import { ErrorDataResult } from "@galatajs/core"
 
 type Product = {
     name: string;
